@@ -1,0 +1,37 @@
+$ glances --stdout cpu.total,nonsense.field --time 2 (unknown field)
+cpu.total: 25.0
+cpu.total: 21.1
+cpu.total: 21.1
+cpu.total: 37.1
+(exit 0)
+
+$ glances -C /nonexistent/glances.conf --stdout cpu.total --time 2 (missing config)
+cpu.total: 46.7
+cpu.total: 10.6
+cpu.total: 10.6
+cpu.total: 11.4
+(exit 0)
+
+$ glances --export nosuchthing --time 2 (unknown exporter)
+cpu.total: 31.2
+cpu.total: 9.3
+cpu.total: 9.3
+cpu.total: 7.6
+(exit 0)
+
+$ start web server on 18083, then start a second one on the same port
+INFO:     Started server process [78480]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 18083): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+(second instance exit 0)
+
+$ glances --disable-plugin network,fs,diskio --stdout cpu.total,mem.percent --time 2 (stdout still works, plugins off)
+cpu.total: 26.7
+mem.percent: 90.9
+cpu.total: 7.1
+mem.percent: 90.9
+cpu.total: 15.0
+mem.percent: 91.5

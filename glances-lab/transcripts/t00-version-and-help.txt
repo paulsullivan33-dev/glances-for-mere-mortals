@@ -1,0 +1,258 @@
+$ glances --version
+Glances version:	4.5.8
+Glances API version:	4
+PsUtil version:		7.2.2
+Log file:		/home/hatch/.local/share/glances/glances.log
+
+$ pip show glances psutil bottle
+Name: Glances
+Version: 4.5.8
+Name: psutil
+Version: 7.2.2
+
+$ python3 --version; uname -sr; nproc; free -m
+Python 3.12.3
+Linux 7.0.0-39-generic
+4
+               total        used        free      shared  buff/cache   available
+Mem:            7934        7529         159         115         619         405
+
+$ glances --help
+usage: glances [-h] [--print-completion {bash,zsh,tcsh,fish,powershell}] [-V]
+               [-d] [-C CONF_FILE] [-P PLUGIN_DIR] [--modules-list]
+               [--disable-plugin DISABLE_PLUGIN]
+               [--enable-plugin ENABLE_PLUGIN] [--disable-process]
+               [--disable-webui] [--light] [-0] [-1] [-2] [-3] [-4] [-5] [-6]
+               [--disable-history] [--disable-bold] [--disable-bg]
+               [--enable-irq] [--enable-process-extended]
+               [--disable-separator] [--disable-cursor] [--arrow-keys-sort]
+               [--sort-processes {cpu_percent,memory_percent,username,cpu_times,io_counters,name,cpu_num}]
+               [--programs] [--export EXPORT]
+               [--export-csv-file EXPORT_CSV_FILE] [--export-csv-overwrite]
+               [--export-json-file EXPORT_JSON_FILE]
+               [--export-graph-path EXPORT_GRAPH_PATH]
+               [--export-process-filter EXPORT_PROCESS_FILTER] [-c CLIENT]
+               [-s] [--browser] [--disable-autodiscover] [-p PORT]
+               [-B BIND_ADDRESS] [-u USERNAME_USED] [--username] [--password]
+               [--snmp-community SNMP_COMMUNITY] [--snmp-port SNMP_PORT]
+               [--snmp-version SNMP_VERSION] [--snmp-user SNMP_USER]
+               [--snmp-auth SNMP_AUTH] [--snmp-force] [-t TIME] [-w]
+               [--enable-mcp] [--mcp-path MCP_PATH]
+               [--cached-time CACHED_TIME] [--stop-after STOP_AFTER]
+               [--open-web-browser] [-q] [-f PROCESS_FILTER]
+               [--process-focus PROCESS_FOCUS] [--process-short-name]
+               [--process-long-name] [--stdout STDOUT]
+               [--stdout-json STDOUT_JSON] [--stdout-csv STDOUT_CSV] [--issue]
+               [--trace-malloc] [--memory-leak] [--api-doc]
+               [--api-restful-doc] [--hide-kernel-threads] [-b]
+               [--diskio-show-ramfs] [--diskio-iops] [--diskio-latency]
+               [--fahrenheit] [--fs-free-space] [--sparkline]
+               [--disable-unicode] [--hide-public-info]
+               [--disable-config-exec] [--disable-check-update]
+               [--strftime STRFTIME_FORMAT] [--fetch]
+               [--fetch-template FETCH_TEMPLATE]
+
+options:
+  -h, --help            show this help message and exit
+  --print-completion {bash,zsh,tcsh,fish,powershell}
+                        print shell completion script
+  -V, --version         show program's version number and exit
+  -d, --debug           enable debug mode
+  -C CONF_FILE, --config CONF_FILE
+                        path to the configuration file
+  -P PLUGIN_DIR, --plugins PLUGIN_DIR
+                        path to additional plugin directory
+  --modules-list, --module-list
+                        display modules (plugins & exports) list and exit
+  --disable-plugin DISABLE_PLUGIN, --disable-plugins DISABLE_PLUGIN, --disable DISABLE_PLUGIN
+                        disable plugin (comma-separated list or all). If all
+                        is used, then you need to configure --enable-plugin.
+  --enable-plugin ENABLE_PLUGIN, --enable-plugins ENABLE_PLUGIN, --enable ENABLE_PLUGIN
+                        enable plugin (comma-separated list)
+  --disable-process     disable process module
+  --disable-webui       disable the Web Interface
+  --light, --enable-light
+                        light mode for Curses UI (disable all but the top
+                        menu)
+  -0, --disable-irix    task's cpu usage will be divided by the total number
+                        of CPUs
+  -1, --percpu, --per-cpu
+                        start Glances in per CPU mode
+  -2, --disable-left-sidebar
+                        disable network, disk I/O, FS and sensors modules
+  -3, --disable-quicklook
+                        disable quick look module
+  -4, --full-quicklook  disable all but quick look and load
+  -5, --disable-top     disable top menu (QL, CPU, MEM, SWAP and LOAD)
+  -6, --meangpu         start Glances in mean GPU mode
+  --disable-history     disable stats history
+  --disable-bold        disable bold mode in the terminal
+  --disable-bg          disable background colors in the terminal
+  --enable-irq          enable IRQ module
+  --enable-process-extended
+                        enable extended stats on top process
+  --disable-separator   disable separator in the UI (between top and others
+                        modules)
+  --disable-cursor      disable cursor (process selection) in the UI
+  --arrow-keys-sort     Use arrow keys to sort the process list instead of the
+                        SHIFT+key combinations
+  --sort-processes {cpu_percent,memory_percent,username,cpu_times,io_counters,name,cpu_num}
+                        Sort processes by: cpu_percent, memory_percent,
+                        username, cpu_times, io_counters, name, cpu_num
+  --programs, --program
+                        Accumulate processes by program
+  --export EXPORT       enable export module (comma-separated list)
+  --export-csv-file EXPORT_CSV_FILE
+                        file path for CSV exporter
+  --export-csv-overwrite
+                        overwrite existing CSV file
+  --export-json-file EXPORT_JSON_FILE
+                        file path for JSON exporter
+  --export-graph-path EXPORT_GRAPH_PATH
+                        Folder for Graph exporter
+  --export-process-filter EXPORT_PROCESS_FILTER
+                        set the export process filter (comma-separated list of
+                        regular expression)
+  -c CLIENT, --client CLIENT
+                        connect to a Glances server by IPv4/IPv6 address or
+                        hostname
+  -s, --server          run Glances in server mode
+  --browser             start TUI Central Glances Browser (use --browser -w to
+                        start WebUI Central Glances Browser)
+  --disable-autodiscover
+                        disable autodiscover feature
+  -p PORT, --port PORT  define the client/server TCP port [default: 61209]
+  -B BIND_ADDRESS, --bind BIND_ADDRESS
+                        bind server to the given IPv4/IPv6 address or hostname
+  -u USERNAME_USED      use or define the given username
+  --username            define or use an username
+  --password            define a client/server password
+  --snmp-community SNMP_COMMUNITY
+                        SNMP community
+  --snmp-port SNMP_PORT
+                        SNMP port
+  --snmp-version SNMP_VERSION
+                        SNMP version (1, 2c or 3)
+  --snmp-user SNMP_USER
+                        SNMP username (only for SNMPv3)
+  --snmp-auth SNMP_AUTH
+                        SNMP authentication key (only for SNMPv3)
+  --snmp-force          force SNMP mode
+  -t TIME, --time TIME  set minimum refresh rate in seconds [default: 2 sec]
+  -w, --webserver       run Glances in web server mode (FastAPI, Uvicorn,
+                        Jinja2 libs needed)
+  --enable-mcp          enable the MCP (Model Context Protocol) server
+                        alongside the web server (mcp package needed)
+  --mcp-path MCP_PATH   set the MCP server mount path [default: /mcp]
+  --cached-time CACHED_TIME
+                        set the server cache time [default: 1 sec]
+  --stop-after STOP_AFTER
+                        stop Glances after n refresh
+  --open-web-browser    try to open the Web UI in the default Web browser
+  -q, --quiet           do not display the curses interface
+  -f PROCESS_FILTER, --process-filter PROCESS_FILTER
+                        set the process filter pattern (regular expression)
+  --process-focus PROCESS_FOCUS
+                        set a process list to focus on (comma-separated list
+                        of Glances filter)
+  --process-short-name  force short name for processes name
+  --process-long-name   force long name for processes name
+  --stdout STDOUT       display stats to stdout, one stat per line (comma-
+                        separated list of plugins/plugins.attribute)
+  --stdout-json STDOUT_JSON
+                        display stats to stdout, JSON format (comma-separated
+                        list of plugins/plugins.attribute)
+  --stdout-csv STDOUT_CSV
+                        display stats to stdout, CSV format (comma-separated
+                        list of plugins/plugins.attribute)
+  --issue               test all plugins and exit (please copy/paste the
+                        output if you open an issue)
+  --trace-malloc        trace memory allocation and display it at the end of
+                        the process (python 3.4 or higher needed)
+  --memory-leak         test memory leak (python 3.4 or higher needed)
+  --api-doc             display Python API documentation
+  --api-restful-doc     display Restful API documentation
+  --hide-kernel-threads
+                        hide kernel threads in the process list (not available
+                        on Windows)
+  -b, --byte            display network rate in bytes per second
+  --diskio-show-ramfs   show RAM Fs in the DiskIO plugin
+  --diskio-iops         show IO per second in the DiskIO plugin
+  --diskio-latency      show IO latency in the DiskIO plugin
+  --fahrenheit          display temperature in Fahrenheit (default is Celsius)
+  --fs-free-space       display FS free space instead of used
+  --sparkline           display sparklines instead of bar in the curses
+                        interface
+  --disable-unicode     disable unicode characters in the curses interface
+  --hide-public-info    hide public information (like public IP)
+  --disable-config-exec
+                        disable backtick command execution in configuration
+                        values and shell operator interpretation (&&, |, >) in
+                        AMP commands (recommended for system services)
+  --disable-check-update
+                        disable online Glances version ckeck
+  --strftime STRFTIME_FORMAT
+                        strftime format string for displaying current date in
+                        standalone mode
+  --fetch, --stdout-fetch
+                        display a (neo)fetch like summary and exit
+  --fetch-template FETCH_TEMPLATE, --stdout-fetch-template FETCH_TEMPLATE
+                        overwrite default fetch template file
+
+Examples of use:
+  Monitor local machine (standalone mode):
+    $ glances
+
+  Display all Glances modules (plugins and exporters) and exit:
+    $ glances --module-list
+
+  Monitor local machine with the Web interface and start RESTful server:
+    $ glances -w
+    Glances web server started on http://0.0.0.0:61208/
+
+  Only start RESTful API (without the WebUI):
+    $ glances -w --disable-webui
+    Glances API available on http://0.0.0.0:61208/api/
+
+  Monitor local machine and export stats to a CSV file (standalone mode):
+    $ glances --export csv --export-csv-file /tmp/glances.csv
+
+  Monitor local machine and export stats to a InfluxDB server with 5s refresh rate (standalone mode):
+    $ glances -t 5 --export influxdb
+
+  Start a Glances XML-RPC server (server mode):
+    $ glances -s
+
+  Connect Glances to a Glances XML-RPC server (client mode):
+    $ glances -c <ip_server>
+
+  Connect Glances to a Glances server and export stats to a StatsD server (client mode):
+    $ glances -c <ip_server> --export statsd
+
+  Start TUI Central Glances Browser:
+    $ glances --browser
+
+  Start WebUI Central Glances Browser:
+    $ glances --browser -w
+
+  Display stats to stdout (one stat per line, possible to go inside stats using plugin.attribute):
+    $ glances --stdout now,cpu.user,mem.used,load
+
+  Display JSON stats to stdout (one stats per line):
+    $ glances --stdout-json now,cpu,mem,load
+
+  Display CSV stats to stdout (all stats in one line):
+    $ glances --stdout-csv now,cpu.user,mem.used,load
+
+  Enable some plugins disabled by default (comma-separated list):
+    $ glances --enable-plugin sensors
+
+  Disable some plugins (comma-separated list):
+    $ glances --disable-plugin network,ports
+
+  Disable all plugins except some (comma-separated list):
+    $ glances --disable-plugin all --enable-plugin cpu,mem,load
+
+$ glances --modules-list
+Plugins list: alert, amps, cloud, connections, containers, core, cpu, diskio, folders, fs, gpu, help, ip, irq, load, mem, memswap, mpp, network, now, npu, percpu, ports, processcount, processlist, programlist, psutilversion, quicklook, raid, sensors, smart, system, uptime, version, vms, wifi
+Exporters list: cassandra, clickhouse, couchdb, csv, duckdb, elasticsearch, graph, graphite, influxdb, influxdb2, influxdb3, json, kafka, mongodb, mqtt, nats, opentsdb, prometheus, rabbitmq, restful, riemann, statsd, timescaledb, zeromq

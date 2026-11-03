@@ -1,0 +1,13 @@
+$ timeout 16 glances --export csv --export-csv-file glances-lab.csv --export-csv-overwrite --time 3
+
+$ head -2 glances-lab.csv | cut -c1-300
+timestamp,amps.Dropbox.key,amps.Dropbox.name,amps.Dropbox.result,amps.Dropbox.refresh,amps.Dropbox.timer,amps.Dropbox.count,amps.Dropbox.countmin,amps.Dropbox.countmax,amps.Dropbox.regex,amps.Python.key,amps.Python.name,amps.Python.result,amps.Python.refresh,amps.Python.timer,amps.Python.count,amps.
+2026-11-03 00:59:16,name,Dropbox,,3.0,3.3895423412323,0,1.0,,true,name,Python,,3.0,3.389413595199585,0,,20.0,true,name,Conntrack,,30.0,3.3893611431121826,0,,,false,name,Nginx,,60.0,3.2621710300445557,0,,,true,name,Systemd,,30.0,3.261721611022949,0,,,true,name,SystemV,,30.0,3.261434555053711,0,,,true
+
+$ wc -l glances-lab.csv
+5 /home/hatch/workspace/glances-labwork/glances-lab.csv
+
+$ timeout 13 glances --export json --export-json-file glances-lab.json --time 3
+
+$ head -c 400 glances-lab.json
+{"amps": {"Dropbox.key": "name", "Dropbox.name": "Dropbox", "Dropbox.result": null, "Dropbox.refresh": 3.0, "Dropbox.timer": 9.391822576522827, "Dropbox.count": 0, "Dropbox.countmin": 1.0, "Dropbox.countmax": null, "Dropbox.regex": "true", "Dropbox.history_size": 1200.0, "Python.key": "name", "Python.name": "Python", "Python.result": null, "Python.refresh": 3.0, "Python.timer": 9.391693592071533, 

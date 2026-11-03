@@ -1,0 +1,28 @@
+site_name: Glances for Mere Mortals
+site_description: One program that watches your whole machine at a glance. Processor, memory, load, disks, network and processes on one screen, the same numbers as plain text, JSON and a web page, thresholds that turn worry into named events, and the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/glances-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Glances Is: what-glances-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Glances: installing-glances.md
+  - Your First Look: your-first-look.md
+  - Reading the Numbers: reading-the-numbers.md
+  - Asking from the Command Line: asking-from-the-command-line.md
+  - Configuration and Thresholds: configuration-and-thresholds.md
+  - The Web Server and the API: web-server-and-api.md
+  - Watching Other Machines: watching-other-machines.md
+  - Exporting History: exporting-history.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

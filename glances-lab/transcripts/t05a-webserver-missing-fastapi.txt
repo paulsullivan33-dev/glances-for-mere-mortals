@@ -1,0 +1,17 @@
+$ glances -w --bind 127.0.0.1 --port 18083 --time 2   (started in background)
+
+$ curl -s http://127.0.0.1:18083/api/4/pluginslist
+
+$ curl -s http://127.0.0.1:18083/api/4/cpu
+
+$ curl -s http://127.0.0.1:18083/api/4/mem
+
+$ curl -s "http://127.0.0.1:18083/api/4/cpu/total"
+
+$ curl -s http://127.0.0.1:18083/api/4/load
+
+$ curl -s http://127.0.0.1:18083/api/4/processcount
+
+$ curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:18083/   (the web UI page itself)
+000
+$ curl -s http://127.0.0.1:18083/api/4/all | python3 -m json.tool | head -30

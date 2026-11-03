@@ -1,0 +1,2 @@
+FastAPI import error: No module named 'fastapi'
+Glances cannot start in web server mode.

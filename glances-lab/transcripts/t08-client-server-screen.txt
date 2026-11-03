@@ -1,0 +1,38 @@
+Connected to htch-runtime Ubuntu 24.04 64bit / Linux 7.0.0-39-generic IP 198.19.0.2/30         Uptime: 0:52:51
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+Frequency 1.50GHz   CPU      22.6%            MEM     91.8%            SWAP     0.0%            LOAD    4core
+CPU  [▪    22.6%]   user     14.4%            total   7.75G            total       0            1 min    0.77
+MEM  [▪▪▪▪ 91.8%]   system    6.6%            used    7.11G            used        0            5 min    1.11
+LOAD [▪    25.2%]   iowait    3.3%            free     218M            free        0            15 min   1.01
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+NETWORK       Rx/s   Tx/s   TASKS  16 (45 thr), 1 run, 15 slp, 0 oth Threads sorted automatically
+host0           0b     0b
+                            CPU%   MEM%  VIRT  RES       PID USER          TIME+ THR  NI S  R/s W/s  Command
+DefaultGateway    Timeout    23.1  4.0   1.89G 319M       67 root           2:39 20    0 S    ? ?    hatch dae
+                             0.5   0.8   1.37G 64.4M   74988 root           0:04 10    0 S   2M 35K  AdGuardHo
+DISK I/O       R/s    W/s    0.5   0.6   58.6M 48.3M   78102 root           0:00 1     0 S  59K 0    python3 /
+dm-0         1.84M      0    1.0   0.6   344M  45.7M   78053 root           0:00 1     0 R    0 0    python3 /
+dm-1         1.47M      0    0.0   0.3   27.2M 21.8M   78134 root           0:00 1     0 S    ? ?    python3 r
+dm-2         2.03M   452K    0.0   0.2   26.0M 18.3M   78101 root           0:00 1     0 S    0 0    python /h
+vda          2.88M      0    0.0   0.1   16.6M 11.3M   77777 root           0:00 1     0 S    0 0    python3 d
+vdb          1.84M      0    0.0   0.1   10.6M 6.66M   77778 root           0:00 1     0 S    0 0    zsh -i
+vdc          1.59M      0    3.4   0.1   33.0M 6.38M     746 root           0:08 2     0 S    ? ?    hatch-exe
+vdc1         1.47M      0    0.0   0.1   21.6M 4.46M       1 root           0:07 1     0 S    0 0    systemd
+vdc2          123K      0    0.0   0.0   4.24M 3.41M   78052 root           0:00 1     0 S    ? ?    bash --no
+vdc3             0      0    0.0   0.0   4.24M 3.39M   77773 root           0:00 1     0 S    ? ?    bash --no
+vdd          2.03M   452K    0.0   0.0   4.24M 3.29M   78133 root           0:00 1     0 S    ? ?    bash --no
+vdd1         2.03M   452K    0.0   0.0   33.3M 2.22M      17 root           0:00 1     0 S    0 0    systemd-j
+                             0.0   0.0   2.66M 1.73M   77776 root           0:00 1     0 S    0 0    timeout 9
+FILE SYS      Used  Total    0.0   0.0   2.66M 1.59M   78135 root           0:00 1     0 S    ? ?    tee /home
+/etc/hosts   1.14G  1.14G
+/etc/resol_  1.14G  1.14G
+/home/hatc_  42.5G   200G
+/home/hatc_  42.5G   200G
+/home/hatc_  1.14G  1.14G
+/home/hatc_  1.14G  1.14G
+/opt/hatch   1.14G  1.14G
+/opt/muse/_  1.14G  1.14G
+/opt/muse/_  1.14G  1.14G
+/run/hatch_  42.5G   200G
+/var/cache_  42.5G   200G   High memory consumption
+2026-11-03 01:00:24 UTC0G   2026-11-03 01:00:11(+0000) (ongoing) - MEM (91.1): glances, hatch, AdGuardHome

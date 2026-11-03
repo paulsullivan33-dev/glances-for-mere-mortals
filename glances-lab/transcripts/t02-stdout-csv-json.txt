@@ -1,0 +1,7 @@
+$ timeout 10 glances --stdout-csv cpu.total,mem.percent,load.min1 --time 3
+cpu.total,mem.percent,load.min1
+9.7,94.6,2.28515625
+9.7,94.6,2.28515625
+
+$ timeout 10 glances --stdout-json cpu,mem --time 3 (first 2 lines, cut at 500 chars)
+{"cpu": {"total": 37.9, "user": 24.6, "nice": 0.0, "system": 19.9, "idle": 32.5, "iowait": 18.6, "irq": 0.0, "steal": 0.9, "guest": 0.0, "ctx_switches": 17197922, "interrupts": 15061247, "soft_interrupts": 5553693, "syscalls": 0, "cpucore": 4}, "mem": {"total": 8319905792, "available": 404746240, "percent": 95.1, "used": 7915159552, "free": 174116864, "active": 637956096, "inactive": 696905728, "buffers": 8192, "cached": 620355584, "shared": 121446400, "percent_min": 95.1, "percent_max": 95.1, "

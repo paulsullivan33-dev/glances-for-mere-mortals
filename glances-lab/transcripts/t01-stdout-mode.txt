@@ -1,0 +1,47 @@
+$ timeout 13 glances --stdout cpu.total,cpu.user,cpu.system,mem.percent,mem.used,mem.total,load.min1,load.min5,uptime --time 3
+cpu.total: 26.6
+cpu.user: 17.8
+cpu.system: 7.3
+mem.percent: 94.4
+mem.used: 7850135552
+mem.total: 8319905792
+load.min1: 2.7470703125
+load.min5: 1.13818359375
+uptime: {'seconds': 2897}
+cpu.total: 39.9
+cpu.user: 20.0
+cpu.system: 17.4
+mem.percent: 93.8
+mem.used: 7807660032
+mem.total: 8319905792
+load.min1: 2.7470703125
+load.min5: 1.13818359375
+uptime: {'seconds': 2900}
+cpu.total: 15.4
+cpu.user: 8.4
+cpu.system: 6.1
+mem.percent: 93.8
+mem.used: 7807660032
+mem.total: 8319905792
+load.min1: 2.7470703125
+load.min5: 1.13818359375
+uptime: {'seconds': 2900}
+cpu.total: 24.2
+cpu.user: 10.2
+cpu.system: 11.5
+mem.percent: 94.7
+mem.used: 7882067968
+mem.total: 8319905792
+load.min1: 2.484375
+load.min5: 1.1337890625
+uptime: {'seconds': 2906}
+cpu.total: 12.4
+cpu.user: 6.8
+cpu.system: 4.6
+mem.percent: 94.7
+mem.used: 7882067968
+mem.total: 8319905792
+load.min1: 2.484375
+load.min5: 1.1337890625
+uptime: {'seconds': 2906}
+(exit 124 — 124 means timeout stopped a long-running monitor, as expected)

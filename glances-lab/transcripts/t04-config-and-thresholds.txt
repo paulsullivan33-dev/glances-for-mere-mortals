@@ -1,0 +1,69 @@
+$ cat lab-glances.conf
+# Lab config for the Glances guide: thresholds set deliberately low
+# so the alert machinery fires on an ordinary busy sandbox minute.
+# Compare with the shipped defaults: cpu user 50/70/90, mem 50/70/90.
+
+[global]
+refresh=2
+check_update=false
+
+[cpu]
+user_careful=5
+user_warning=10
+user_critical=20
+system_careful=5
+system_warning=10
+system_critical=20
+total_careful=10
+total_warning=20
+total_critical=40
+
+[mem]
+careful=50
+warning=70
+critical=85
+
+[load]
+careful=0.5
+warning=0.8
+critical=2.0
+
+$ glances -C lab-glances.conf --time 2  (curses, rendered final screen)
+htch-runtime Ubuntu 24.04 64bit / Linux 7.0.0-39-generic IP 198.19.0.2/30                      Uptime: 0:50:03
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+Frequency 1.50GHz   CPU      25.4%            MEM     88.7%            SWAP     0.0%            LOAD    4core
+CPU  [|    25.4%]   user     12.7%            total   7.75G            total       0            1 min    1.79
+MEM  [|||  88.7%]   system   11.5%            used    6.87G            used        0            5 min    1.27
+LOAD [|    25.6%]   iowait    3.1%            free     189M            free        0            15 min   1.03
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+NETWORK       Rx/s   Tx/s   TASKS  19 (50 thr), 2 run, 17 slp, 0 oth Threads sorted automatically
+host0           0b     0b
+lo              0b     0b   CPU%   MEM%  VIRT  RES       PID USER          TIME+ THR  NI S  R/s W/s  CPU
+                            >17.2  3.9   1.89G 308M       67 root           2:08 20    0 S    ? ?      3 hatch
+TCP CONNECTIONS              2.4   0.4   256M  33.9M   75806 root           0:00 1     0 R    0 0      3 pytho
+Listen                  2    0.0   0.3   1.25G 25.0M   74988 root           0:00 10    0 S    0 0      0 AdGua
+Initiated               0    0.0   0.2   26.1M 18.3M   75805 root           0:00 1     0 S    0 0      1 pytho
+Established             0    0.0   0.2   201M  13.3M   75781 root           0:00 3     0 S    0 0      2 dig @
+Terminated             54    0.0   0.1   16.6M 11.0M   76113 root           0:00 1     0 S    0 2K     1 pytho
+Tracked          0/262144    31.6  0.1   7.82M 6.45M   76124 nobody         0:00 1     0 S    ? ?      3 zsh -
+                             3.4   0.1   33.0M 5.77M     746 root           0:03 2     0 R    ? ?      1 hatch
+DISK I/O       R/s    W/s    0.5   0.1   21.6M 5.60M       1 root           0:07 1     0 S  61M 42K    0 syste
+dm-0          323K      0    0.0   0.0   4.24M 3.60M   76101 root           0:00 1     0 S    ? ?      3 bash
+dm-1         1008K      0    0.0   0.0   4.24M 3.37M   75803 root           0:00 1     0 S    ? ?      0 bash
+dm-2         1.01M   456K    0.0   0.0   4.24M 3.33M   76153 root           0:00 1     0 S    ? ?      1 bash
+loop0            0      0    0.0   0.0   33.3M 3.06M      17 root           0:00 1     0 S    0 0      1 syste
+loop1            0      0    0.0   0.0   4.24M 2.12M   76154 root           0:00 1     0 S    ? ?      1 bash
+loop2            0      0    0.0   0.0   4.24M 2.03M   75319 root           0:00 1     0 S    0 0      0 bash
+loop3            0      0    0.0   0.0   2.66M 1.74M   76111 root           0:00 1     0 S    0 0      1 timeo
+loop4            0      0    0.0   0.0   2.66M 1.62M   76155 root           0:00 1     0 S    ? ?      1 tee t
+loop5            0      0    0.0   0.0   2.65M 1.56M   76157 root           0:00 1     0 S    ? ?      3 sleep
+loop6            0      0    0.0   0.0   4.24M 1.20M   75318 root           0:00 1     0 S    ? ?      0 bash
+loop7            0      0
+vda          1.27M      0
+vdb           323K      0
+vdc          1008K      0
+vdc1         1008K      0
+vdc2             0      0
+vdc3             0      0   High memory consumption
+vdd          1.01M   456K   2026-11-03 00:57:25(+0000) (ongoing) - MEM (88.7): hatch, glances, AdGuardHome
+2026-11-03 00:57:36 UTC6K   2026-11-03 00:57:25(+0000) (0:00:08) - WARNING on CPU_USER

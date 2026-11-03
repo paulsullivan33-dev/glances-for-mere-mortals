@@ -1,0 +1,17 @@
+$ glances -w --bind 127.0.0.1 --port 18083 --time 2   (background, then:)
+$ curl -s http://127.0.0.1:18083/api/4/pluginslist
+["alert", "amps", "containers", "core", "cpu", "diskio", "folders", "fs", "gpu", "help", "ip", "load", "mem", "memswap", "network", "now", "percpu", "ports", "processcount", "processlist", "programlist", "psutilversion", "quicklook", "sensors", "system", "uptime", "version", "wifi"]
+$ curl -s http://127.0.0.1:18083/api/4/cpu
+{"total": 0.0, "user": 0.0, "nice": 0.0, "system": 0.0, "idle": 0.0, "iowait": 0.0, "irq": 0.0, "steal": 0.0, "guest": 0.0, "ctx_switches": 0, "interrupts": 0, "soft_interrupts": 0, "syscalls": 0, "cpucore": 4, "time_since_update": 7.759039640426636, "ctx_switches_gauge": 20029398, "ctx_switches_rate_per_sec": 0, "interrupts_gauge": 17050554, "interrupts_rate_per_sec": 0, "soft_interrupts_gauge": 6324618, "soft_interrupts_rate_per_sec": 0, "syscalls_gauge": 0, "syscalls_rate_per_sec": 0}
+$ curl -s http://127.0.0.1:18083/api/4/mem
+{"total": 8319905792, "available": 983146496, "percent": 88.2, "used": 7336759296, "free": 158515200, "active": 780722176, "inactive": 997634048, "buffers": 12288, "cached": 1275895808, "shared": 121544704, "percent_min": 87.7, "percent_max": 88.2, "percent_mean": 87.95}
+$ curl -s http://127.0.0.1:18083/api/4/cpu/total
+{"total": 0.0}
+$ curl -s http://127.0.0.1:18083/api/4/load
+{"min1": 1.701171875, "min5": 1.34619140625, "min15": 1.06884765625, "cpucore": 4}
+$ curl -s http://127.0.0.1:18083/api/4/uptime
+"0:51:18"
+$ curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:18083/  (web UI page)
+200
+$ curl -s http://127.0.0.1:18083/api/4/all | head -c 600
+{"alert": [{"begin": 1793667523, "state": "WARNING", "type": "MEM", "min": 87.69369450091004, "max": 88.18320158209791, "sum": 175.87689608300795, "count": 2, "avg": 87.93844804150397, "top": [], "desc": "", "sort": "memory_percent", "global_msg": "High memory consumption", "end": -1}], "amps": [{"key": "name", "name": "Dropbox", "result": null, "refresh": 3.0, "timer": 0.17176032066345215, "count": 0, "countmin": 1.0, "countmax": null, "regex": true}, {"key": "name", "name": "Python", "result": null, "refresh": 3.0, "timer": 0.1715564727783203, "count": 0, "countmin": null, "countmax": 20.0, 
